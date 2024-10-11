@@ -1,0 +1,40 @@
+<!-- templates/admin_assignments.html -->
+{% extends 'base.html' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+    <h1>Assignments for {{ admin_username }}</h1>
+    
+    {% if assignments %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Task</th>
+                    <th>Date Submitted</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for assignment in assignments %}
+                <tr>
+                    <td>{{ assignment.user.username }}</td>
+                    <td>{{ assignment.task }}</td>
+                    <td>{{ assignment.created_at }}</td>
+                    <td>
+                        <a href="{% url 'accept-assignment' assignment.id %}">
+                            <button class="accept-btn">Accept</button>
+                        </a>
+                        <a href="{% url 'reject-assignment' assignment.id %}">
+                            <button class="reject-btn">Reject</button>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No assignments found for you at this time.</p>
+    {% endif %}
+{% endblock %}

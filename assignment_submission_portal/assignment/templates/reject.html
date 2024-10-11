@@ -1,0 +1,11 @@
+<!-- templates/reject_assignment.html -->
+{% extends 'base.html' %}
+
+{% block title %}Assignment Rejected{% endblock %}
+
+{% block content %}
+    <h1>Assignment Rejected</h1>
+    <p>The assignment from {{ assignment.user.username }} has been successfully rejected.</p>
+    
+    <a href="{% url 'admin-assignments' %}"><button>Back to Dashboard</button></a>
+{% endblock %}

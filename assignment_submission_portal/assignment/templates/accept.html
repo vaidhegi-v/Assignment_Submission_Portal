@@ -1,0 +1,10 @@
+<!-- templates/accept_assignment.html -->
+{% extends 'base.html' %}
+
+{% block title %}Assignment Accepted{% endblock %}
+
+{% block content %}
+    <h1>Assignment Accepted</h1>
+    <p>The assignment from {{ assignment.user.username }} has been successfully accepted.</p>
+    <a href="{% url 'admin-assignments' %}"><button>Back to Dashboard</button></a>
+{% endblock %}

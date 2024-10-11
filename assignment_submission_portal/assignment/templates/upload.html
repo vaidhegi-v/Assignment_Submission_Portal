@@ -1,0 +1,17 @@
+<!-- templates/upload.html -->
+{% extends 'base.html' %}
+
+{% block title %}Upload Assignment{% endblock %}
+
+{% block content %}
+    <h1>Upload Assignment</h1>
+    <form method="POST" action="/upload/">
+        <label for="task">Assignment:</label><br>
+        <textarea id="task" name="task" required></textarea><br><br>
+
+        <label for="admin">Assign to Admin:</label>
+        <input type="text" id="admin" name="admin" required><br><br>
+
+        <button type="submit">Upload</button>
+    </form>
+{% endblock %}
